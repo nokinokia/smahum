@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap" rel="stylesheet">
+  <title>Abstract Landing Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Rubik Vinyl", system-ui;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 10px 20px;
+      position: relative;
+      text-align: center;
+      color: white;
+      background: linear-gradient(120deg, #fcff9e, #00c68b, #12c2e9, #aa00ff, #4fa5f6);
+    }
+
+    #home {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(120deg, #fcff9e, #00c68b, #12c2e9, #aa00ff, #4fa5f6);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    #home .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    #home .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    #home h1 {
+      font-size: 48px;
+      margin: 20px 0;
+      text-shadow: 2px 2px 10px #000;
+    }
+
+    #home .social-media a {
+      margin: 0 10px;
+      display: inline-block;
+      transition: transform 0.8s;
+      animation: fadeIn 2s ease-in-out, moveUpDown 2s ease-in-out infinite alternate;
+    }
+
+    #home .social-media a:hover {
+      transform: scale(1.2);
+    }
+
+    #about, #features, #gallery {
+      background: linear-gradient(135deg, #6bffb1, #69db7c);
+      transform: skewY(-3deg);
+      margin-top: -50px;
+      padding: 100px 20px;
+      animation: fadeIn 2s ease-in-out, moveUpDown 2s ease-in-out infinite alternate;
+
+    }
+
+    #about .about-box, #features .feature-box, #gallery .photo-row {
+      transform: skewY(3deg);
+      margin-bottom: 20px;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    #about .side-images img {
+      width: 45%;
+      margin: 20px;
+    }
+
+    .feature-box, .feature-box1 {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px;
+      text-align: left;
+    }
+
+    .photo-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        animation: scroll-left 10s linear infinite;
+      }
+      
+      .photo-row.reverse {
+        animation: scroll-right 10s linear infinite;
+      }
+      
+      .photo-row img {
+        width: 300px;
+        margin: 0 10px;
+        border-radius: 15px;
+        transition: transform 0.3s;
+      }
+      
+      .photo-row img:hover {
+        transform: scale(1.1);
+      }
+    
+      @keyframes photo-bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+      }
+      
+      @keyframes fade-in {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      
+      @keyframes slide-in-left {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(0); }
+      }
+      
+      @keyframes slide-in-right {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(0); }
+      }
+      
+      @keyframes fade-in-up {
+        0% { opacity: 0; transform: translateY(50px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      
+      @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+      }
+      
+      @keyframes scroll-right {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(100%); }
+      }
+    @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes slideIn {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(100%);
+        }
+      }
+      
+      @keyframes moveUpDown {
+        from {
+          transform: translateY(20px);
+        }
+        to {
+          transform: translateY(-20px);
+        }
+      }
+      
+      @keyframes gradientShift {
+        0% {
+          background: linear-gradient(135deg, #d4fc79, #1abd71);
+        }
+        100% {
+          background: linear-gradient(135deg, #1abd71, #d4fc79);
+        }
+      }
+    /* Responsive */
+    @media (max-width: 768px) {
+      #home h1 {
+        font-size: 36px;
+      }
+
+      #about .side-images img, .photo-row img {
+        width: 90%;
+        margin: 10px auto;
+      }
+
+      .photo-row {
+        flex-direction: column;
+      }
+
+      .feature-box, .feature-box1 {
+        text-align: center;
+      }
+    }
+
+    #copy-button {
+        background: linear-gradient(120deg, #fcff9e, #00c68b, #12c2e9, #aa00ff, #4fa5f6);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        border-radius: 9px;
+        margin-top: 20px;
+        font-family: "Rubik Vinyl", system-ui;
+        animation: pulse 2s infinite;
+      }
+    
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+    
+      #copy-button:hover {
+        background-color: #5d17ff;
+      }
+  </style>
+</head>
+<body>
+  <!-- Home Section -->
+  <section id="home">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="logo">
+        <img src="https://i.pinimg.com/736x/ab/b0/49/abb049ee7aa4fb4d1a960eace70a2107.jpg" alt="Logo" width="50%">
+      </div>
+      <h1 class="rubik-vinyl-regular">Welcome to Our Abstract World</h1>
+      <div class="social-media">
+        <a href="#"><img src="https://www.freepnglogos.com/uploads/twitter-x-logo-png/twitter-x-logo-png-9.png" width="70px"></a>
+        <a href="#"><img src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="70px"></a>
+        <a href="#"><img src="https://static.vecteezy.com/system/resources/previews/021/819/342/non_2x/fun-green-pill-free-png.png" width="70px"></a>
+        <center>
+            <p id="copy-text">CA XXXXXXXXXXXXXXXXXXXX</p>
+            <button id="copy-button">Salin Teks</button>  
+          </center>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section id="about">
+    <div class="content">
+      <div class="side-images">
+        <img src="https://1.bp.blogspot.com/-W-x5yT28BNU/UIR69G6cA7I/AAAAAAAAFeM/3Uwp6UtbVt0/w1200-h630-p-k-no-nu/44544_515894008422453_1034300950_n.jpg" alt="Side Image 1">
+        <img src="https://i.pinimg.com/736x/c1/11/f8/c111f8ece9303aa66fd3c71d6946d2ed.jpg" alt="Side Image 2">
+      </div>
+      <div class="about-box rubik-vinyl-regular">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features">
+    <div class="content">
+      <div class="feature-box rubik-vinyl-regular">
+        <center>
+
+        <h2>TOKENOMICS</h2>
+        <p>Token Name = $JUCE</p>
+        <p>TICKER = $JUCE</p>
+        <p>TOTAL SUPPLY = 1.000.000.0000</p>
+        <p>LIQUIDITY POLL BURNED = 100 %</p>
+        <p>TAX = 0%</p>
+      </div>
+      <div class="feature-box1 rubik-vinyl-regular">
+        <center>
+        <h2>ROADMAP</h2>
+        <p>1. Define Goals and Objectives</p>
+        <p>2. Identify Steps and Phases</p>
+        <p>3. Schedule Tasks and Phases</p>
+        <p>4. Allocate Resources</p>
+        <p>5. Choose Roadmap Format</p>
+    </center>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <div class="content">
+      <div class="photo-row">
+        <img src="https://video-images.vice.com/articles/596c2e498e7286174342e6e1/lede/1500262300556-1499971813975-monkey.jpeg" alt="Photo 1">
+        <img src="https://video-images.vice.com/articles/596c2e498e7286174342e6e1/lede/1500262300556-1499971813975-monkey.jpeg" alt="Photo 2">
+        <img src="https://video-images.vice.com/articles/596c2e498e7286174342e6e1/lede/1500262300556-1499971813975-monkey.jpeg" alt="Photo 3">
+      </div>
+      <div class="photo-row reverse">
+        <img src="https://video-images.vice.com/articles/596c2e498e7286174342e6e1/lede/1500262300556-1499971813975-monkey.jpeg" alt="Photo 4">
+        <img src="https://video-images.vice.com/articles/596c2e498e7286174342e6e1/lede/1500262300556-1499971813975-monkey.jpeg" alt="Photo 5">
+        <img src="https://video-images.vice.com/articles/596c2e498e7286174342e6e1/lede/1500262300556-1499971813975-monkey.jpeg" alt="Photo 6">
+      </div>
+    </div>
+  </section>
+  <section id="footer">
+    <div class="content">
+      <p>&copy; 2024. All Rights Reserved.</p>
+    </div>
+  </section>
+  <script>
+    document.getElementById("copy-button").addEventListener("click", function() {
+        var copyText = document.getElementById("copy-text").textContent;
+        navigator.clipboard.writeText(copyText).then(function() {
+          alert("Text copied to clipboard");
+        }, function() {
+          alert("Failed to copy text");
+        });
+      });
+      
+  </script>
+</body>
+</html>
